@@ -38,7 +38,7 @@ class TweetsController < ApplicationController
       params.require(:tweet).permit(:content)
     end
 
-    def current_user
+    def correct_user
       @tweet = current_user.tweets.find_by(id: params[:id])
       if @tweet.nil?
         flash[:danger] = "不正なアクセスです"
